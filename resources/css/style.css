@@ -1,0 +1,80 @@
+* {
+    -fx-background-color: #5b5950;
+    -fx-font-family: cursive;
+     -fx-text-fill: #fff;
+}
+
+
+#container {
+   -fx-padding: 35px;
+
+}
+.button {
+-fx-spacing: 10px;
+}
+#hboxcustom {
+-fx-spacing: 10px;
+}
+#buttonbox {
+-fx-spacing: 20px;
+-fx-alignment:center;
+}
+
+.from-to {
+-fx-text-fill: Red;
+
+
+    -fx-background-radius: 5px;
+    -fx-padding: 1px;
+    -fx-pref-width: 75px;
+    -fx-font-size: 30px;
+    -fx-spacing: 50px;
+}
+.currency-buttons {
+    -fx-text-fill: white;
+
+    -fx-border-radius: 20px;
+    -fx-border-color: white;
+    -fx-border-style: solid;
+
+    -fx-background-radius: 5px;
+    -fx-padding: 1px;
+    -fx-pref-width: 100px;
+    -fx-font-size: 25px;
+    -fx-spacing: 50px;
+}
+
+
+#headerText {
+    -fx-font-align: center;
+    -fx-font-size: 35px;
+    -fx-font-color: white;
+    -fx-alignment: center;
+
+
+}
+
+.button-container {
+
+    -fx-align:center;
+    -fx-spacing: 35px;
+
+}
+
+.text-field {
+-fx-prompt-text-fill: white;
+-fx-font-size: 25px;
+-fx-border-style: solid;
+-fx-border-color: #fff;
+-fx-border-width: 5px;
+-fx-border-radius: 15px;
+
+}
+
+.text-field:focused {
+-fx-prompt-text-fill: white;
+}
+.currency-box {
+
+
+}

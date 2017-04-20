@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.control.ToggleButton?>
+<VBox fx:id="container" prefHeight="500.0" prefWidth="600.0" stylesheets="/css/style.css" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
+    <children>
+        <VBox alignment="CENTER" styleClass="button-container">
+            <Label fx:id="headerText" text="Currency converter" textAlignment="CENTER" />
+            <HBox fx:id="hboxcustom2" styleClass="custombox">
+                <children>
+                    <Label text="From" styleClass="from-to" />
+                    <Button styleClass="currency-buttons" text="USD" onAction="#handleUSD" />
+                    <Button styleClass="currency-buttons" text="EUR" onAction="#handleEUR"/>
+                    <Button styleClass="currency-buttons" text="AUD" onAction="#handleAUD"/>
+                    <Button styleClass="currency-buttons" text="JPY" onAction="#handleJPY"/>
+                    <Button styleClass="currency-buttons" text="CNY" onAction="#handleCNY"/>
+                    <Button styleClass="currency-buttons" text="LTL" onAction="#handleGBP"/>
+                </children>
+            </HBox>
+            <HBox fx:id="hboxcustom" styleClass="custombox">
+                <children>
+                    <Label text="To" styleClass="from-to" />
+
+                    <Button styleClass="currency-buttons" text="USD" onAction="#handleUSDto" />
+                    <Button styleClass="currency-buttons" text="EUR" onAction="#handleEURto"/>
+                    <Button styleClass="currency-buttons" text="AUD" onAction="#handleAUDto"/>
+                    <Button styleClass="currency-buttons" text="JPY" onAction="#handleJPYto"/>
+                    <Button styleClass="currency-buttons" text="CNY" onAction="#handleCNYto"/>
+                    <Button styleClass="currency-buttons" text="GBP" onAction="#handleGBPto"/>
+                </children>
+            </HBox>
+
+            <TextField fx:id="moneyInput" alignment="CENTER" promptText="Enter the amount to convert"/>
+            <TextField fx:id="moneyOutput" alignment="CENTER" promptText="Result"/>
+
+            <HBox fx:id="buttonbox" >
+                <Button styleClass="currency-buttons" text="SUBMIT" onAction="#handleSubmit" />
+                <Button styleClass="currency-buttons" text="RESET" onAction="#handleReset" />
+
+            </HBox>
+
+        </VBox>
+    </children>
+</VBox>
