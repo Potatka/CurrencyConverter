@@ -2,6 +2,7 @@ package controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
@@ -30,9 +31,9 @@ public class Controller {
     public Controller() {
         mKind = CurrencyKind.USD;
         mKindTo = CurrencyKind.USD;
-}
+    }
 
-    public void prepareConversion() {
+    private void prepareConversion() {
         if (moneyInput.getText().isEmpty()) {
             moneyInput.setPromptText("Please enter a number");
             setToDefault();
@@ -40,7 +41,18 @@ public class Controller {
             if (mKind == null && mKindTo == null) {
                 setToDefault();
             }
-            moneySubmitAmount = Double.parseDouble(moneyInput.getText());
+            try {
+                moneySubmitAmount = Double.parseDouble(moneyInput.getText());
+            } catch(Exception e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error!");
+
+                alert.setHeaderText("An error was encountered");
+                alert.setContentText("You have entered an invalid number");
+
+                alert.showAndWait();
+
+            }
             mCurrency = new Currency();
             mCurrency.setCurrentMoney(moneySubmitAmount);
             calculate(mKind, mKindTo);
@@ -49,15 +61,15 @@ public class Controller {
 
     }
 
-    public double calculate(CurrencyKind kind, CurrencyKind newKind) {
+    private void calculate(CurrencyKind kind, CurrencyKind newKind) {
         // double calculation = mCurrency.getCurrentMoney() * mKind.getConversionValue() *(1/mKindTo.getConversionValue());
         mAnswer = mCurrency.getCurrentMoney() * mKind.getConversionValue() * (1 / mKindTo.getConversionValue());
         String output = Double.toString(mAnswer) + " " + mKindTo.getCurrencyName();
         moneyOutput.setText(output);
-        return mAnswer;
+      //  return mAnswer;
     }
 
-    public void setToDefault() {
+    private void setToDefault() {
         mKind = CurrencyKind.USD;
         mKindTo = CurrencyKind.USD;
         setLabelText(mKind, mKindTo);
@@ -65,7 +77,7 @@ public class Controller {
     }
 
     //-----------------------------------------------FROM---------------------------------------//
-    public void handleUSD(ActionEvent actionEvent) {
+    public void handleUSD() {
         mKind = CurrencyKind.USD;
         setLabelText(mKind, mKindTo);
        /* if(mAnswer != null) {
@@ -142,11 +154,11 @@ public class Controller {
     }
 
 
-    public void setLabelText(CurrencyKind mKind, CurrencyKind mKindTo) {
+    private void setLabelText(CurrencyKind mKind, CurrencyKind mKindTo) {
         if (mKind == null && mKindTo == null) {
             setToDefault();
         }
-        String value = "Currency selected: " + mKind.getCurrencyName() + " to " + mKindTo.getCurrencyName();
+        String value = "Currency selected: " + (mKind != null ? mKind.getCurrencyName() : null) + " to " + (mKindTo != null ? mKindTo.getCurrencyName() : null);
         headerText.setText(value);
 
 
